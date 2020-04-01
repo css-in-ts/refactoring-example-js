@@ -25,8 +25,8 @@ export const Swatch = ({ fill, border}) => (
       <div
         style={{
           backgroundColor: fill,
-          height: '50px',
-          width: '75px',
+          height: '25px',
+          width: '50px',
           borderColor: border,
           borderStyle: 'solid',
           borderRadius: '1rem'

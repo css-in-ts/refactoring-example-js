@@ -4,8 +4,8 @@ import {makeColor} from "../../utils/makeColor";
 
 export const BlueOrange = () => {
 
-  const fill = makeColor({ custom: '#0508EE'  })
-  const border = makeColor({ custom: '#EE7D0F' })
+  const fill = makeColor({ custom: '#46ee4e'  })
+  const border = makeColor({ custom: '#ed44ee' })
 
   return <Swatch fill={fill} border={border} />
 

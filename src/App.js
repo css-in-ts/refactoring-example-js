@@ -25,11 +25,12 @@ const GridWrapper = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 12px;
-  grid-row-gap: 12px;
+  grid-column-gap: .5rem;
+  grid-row-gap: .25rem;
 `
 
 const Title  = styled.h1`
+  margin: .5rem 0 0 0;
   text-align: center;
   font-size: 2rem;
 `
@@ -37,7 +38,17 @@ const Title  = styled.h1`
 function App() {
   return (
     <div>
-      <Title>Color Swatches</Title>
+      <Title>
+        <span style={{ color: makeColor({ scalable: { color: 'secondary', scale: 1 } })}}>Hey </span>
+        <span style={{ color: makeColor({ scalable: { color: 'secondary' } })}}>Chariot</span>
+        <span style={{ color: makeColor({ scalable: { color: 'secondary', scale: 3 } })}}>...</span>
+        <span style={{ color: makeColor({ scalable: { color: 'primary' } })}}>I </span>
+        <span style={{ color: makeColor({ scalable: { color: 'primary', scale: 1 } })}}>Heard </span>
+        <span style={{ color: makeColor({ scalable: { color: 'primary', scale: 2 } })}}>You </span>
+        <span style={{ color: makeColor({ scalable: { color: 'primary', scale: 3 } })}}>Paint </span>
+        <span style={{ color: makeColor({ scalable: { color: 'error' } })}}>Houses</span>
+        <span style={{ color: makeColor({ scalable: { color: 'error', scale: 3 } })}}>...</span>
+      </Title>
       <GridWrapper>
         <Grid>
 

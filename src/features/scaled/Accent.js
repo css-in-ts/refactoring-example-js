@@ -4,8 +4,8 @@ import {makeColor} from "../../utils/makeColor";
 
 export const Accent = () => {
 
-  const fill = makeColor({ scalable: { color: 'accent', scale: 3 } })
-  const border = makeColor({ scalable: { color: 'secondary' } })
+  const fill = makeColor({ scalable: { color: 'primary' } })
+  const border = makeColor({ scalable: { color: 'accent', scale: 2 } })
 
   return <Swatch fill={fill} border={border} />
 
