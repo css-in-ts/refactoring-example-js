@@ -51,28 +51,28 @@ const fixedColorMap = {
 
 /**
  * a happy little document
- * @param [fixed] {string}
- * @param [scalable] {{ color: string, scale: number }}
- * @param [custom] {string}
+ * @param type {string}
+ * @param color {string}
+ * @param [scale] {string}
  * @return {string}
  */
 export const makeColor = ({
-  fixed,
-  scalable,
-  custom
+  type,
+  color,
+  scale
 }) => {
-  if (scalable?.color) {
-    return scalableColorMap[scalable.color][scalable.scale || 0];
+  switch (type) {
+    case 'custom':
+      console.warn(
+        "You're attempting to use a custom color that falls outside of the design system. This color will not be regulated by the design system any longer and thusly isn't type-safe. You'll be required to update this value manually for any subsequent changes. Use with cation."
+      );
+      console.log(color);
+      return color;
+    case 'fixed':
+      return fixedColorMap[color]
+    case 'scalable':
+      return scalableColorMap[color][scale || 0];
+    default:
+      return ''
   }
-  if (fixed) {
-    return fixedColorMap[fixed];
-  }
-  if (custom) {
-    console.warn(
-      'You\'re attempting to use a custom color that falls outside of the design system. This color will not be regulated by the design system any longer and thusly isn\'t type-safe. You\'ll be required to update this value manually for any subsequent changes. Use with cation.'
-    );
-    console.log(custom);
-    return custom;
-  }
-  return '';
 };
