@@ -1,5 +1,5 @@
-import {mix} from "polished";
-import {colorConfig} from "@css-in-ts/design-system/configs";
+import { mix } from 'polished';
+import { colorConfig } from '@css-in-ts/design-system/configs';
 
 /**
  * handy dandy JSDoc
@@ -30,14 +30,14 @@ const createColorScale = (hex) => [
  * @type {{secondary: string[], gray: string[], light: string[], success: string[], warning: string[], error: string[], accent: string[], primary: string[]}}
  */
 const scalableColorMap = {
-  primary: createColorScale("primary"),
-  secondary: createColorScale("secondary"),
-  accent: createColorScale("accent"),
-  gray: createColorScale("gray"),
-  light: createColorScale("light"),
-  success: createColorScale("success"),
-  warning: createColorScale("warning"),
-  error: createColorScale("error")
+  primary: createColorScale('primary'),
+  secondary: createColorScale('secondary'),
+  accent: createColorScale('accent'),
+  gray: createColorScale('gray'),
+  light: createColorScale('light'),
+  success: createColorScale('success'),
+  warning: createColorScale('warning'),
+  error: createColorScale('error')
 };
 
 /**
@@ -51,28 +51,28 @@ const fixedColorMap = {
 
 /**
  * a happy little document
- * @param type string
- * @param color string
- * @param [scale] string
+ * @param [fixed] {string}
+ * @param [scalable] {{ color: string, scale: number }}
+ * @param [custom] {string}
  * @return {string}
  */
 export const makeColor = ({
-  type,
-  color,
-  scale
+  fixed,
+  scalable,
+  custom
 }) => {
-  switch (type) {
-    case 'custom':
-      console.warn(
-        "You're attempting to use a custom color that falls outside of the design system. This color will not be regulated by the design system any longer and thusly isn't type-safe. You'll be required to update this value manually for any subsequent changes. Use with cation."
-      );
-      console.log(color);
-      return color;
-    case 'fixed':
-      return fixedColorMap[color]
-    case 'scalable':
-      return scalableColorMap[color][scale || 0];
-    default:
-      return ''
+  if (scalable?.color) {
+    return scalableColorMap[scalable.color][scalable.scale || 0];
   }
+  if (fixed) {
+    return fixedColorMap[fixed];
+  }
+  if (custom) {
+    console.warn(
+      'You\'re attempting to use a custom color that falls outside of the design system. This color will not be regulated by the design system any longer and thusly isn\'t type-safe. You\'ll be required to update this value manually for any subsequent changes. Use with cation.'
+    );
+    console.log(custom);
+    return custom;
+  }
+  return '';
 };
