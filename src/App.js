@@ -16,8 +16,8 @@ const GridWrapper = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  background-color: ${makeColor({ type: 'scalable', color: 'light', scale: 2 })};
-  border-color: ${makeColor({ type: 'scalable', color: 'secondary' })};
+  background-color: ${makeColor({ scalable: { color: 'light', scale: 2 } })};
+  border-color: ${makeColor({ scalable: { color: 'secondary' } })};
   border-style: dotted;
   border-width: 2px;
   border-radius: 2rem;
